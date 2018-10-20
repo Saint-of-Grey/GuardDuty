@@ -17,7 +17,7 @@ namespace GuardDuty
 
             if (_def == null) return false;
 
-            if (!me.workSettings.WorkIsActive(_def))
+            if (me?.workSettings == null || !me.workSettings.WorkIsActive(_def))
                 return false;
 
             if (makeAgro)
