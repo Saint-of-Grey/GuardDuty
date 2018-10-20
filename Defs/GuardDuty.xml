@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorkTypeDef>
+        <defName>GuardDuty</defName>
+        <labelShort>Guard Duty</labelShort>
+        <pawnLabel>Guard</pawnLabel>
+        <gerundLabel>guarding</gerundLabel>
+        <description>Kill and imprison bad guys.</description>
+        <verb>guard</verb>
+        <naturalPriority>1101</naturalPriority>
+        <relevantSkills>
+            <li>Shooting</li>
+        </relevantSkills>
+        <workTags>
+            <li>Violent</li>
+        </workTags>
+    </WorkTypeDef>
+
+
+    <WorkGiverDef>
+        <defName>GuardDutyRescue</defName>
+        <label>rescue downed allies to bed</label>
+        <giverClass>WorkGiver_RescueDowned</giverClass>
+        <workType>GuardDuty</workType>
+        <verb>rescue</verb>
+        <gerund>rescuing</gerund>
+        <priorityInType>60</priorityInType>
+        <directOrderable>false</directOrderable>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+
+    <WorkGiverDef>
+        <defName>GuardDutyTakePrisonerToBed</defName>
+        <label>take prisoners to bed</label>
+        <giverClass>WorkGiver_Warden_TakeToBed</giverClass>
+        <workType>GuardDuty</workType>
+        <verb>take to bed</verb>
+        <gerund>taking to bed</gerund>
+        <priorityInType>30</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+</Defs>
