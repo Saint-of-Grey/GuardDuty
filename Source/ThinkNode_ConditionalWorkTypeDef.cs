@@ -20,6 +20,8 @@ namespace GuardDuty
             if (me?.workSettings == null || !me.workSettings.WorkIsActive(_def))
                 return false;
 
+            if (me.Drafted) return false;
+            
             if (makeAgro)
             {
                 if (me.playerSettings == null) me.playerSettings = new Pawn_PlayerSettings(me);
