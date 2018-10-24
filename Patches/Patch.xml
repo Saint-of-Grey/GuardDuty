@@ -7,6 +7,7 @@
         <value>
             <li Class="GuardDuty.ThinkNode_ConditionalTownBell">
                 <subNodes>
+                    <li Class="GuardDuty.JobGiver_GoToBell"/>
                     <li Class="GuardDuty.ThinkNode_ConditionalWorkTypeDef">
                         <workTypeDef>GuardDuty</workTypeDef>
                         <makeAgro>true</makeAgro>
@@ -17,8 +18,6 @@
                                         <targetAcquireRadius>52</targetAcquireRadius>
                                         <targetKeepRadius>42</targetKeepRadius>
                                     </li>
-                                    <li Class="GuardDuty.JobGiver_GoToPatrol"/>
-                                    <li Class="GuardDuty.JobGiver_GoToBell"/>
                                 </subNodes>
                             </li>
                         </subNodes>
@@ -41,43 +40,41 @@
                                     </li>
                                 </subNodes>
                             </li>
+
+                            <li Class="GuardDuty.JobGiver_Capture">
+                                <targetAcquireRadius>18</targetAcquireRadius>
+                            </li>
+                            <li Class="JobGiver_WanderOwnRoom"/>
+                            <li Class="GuardDuty.JobGiver_GoToBell"/>
+                        </subNodes>
+                    </li>
+                </subNodes>
+            </li>
+            <li Class="GuardDuty.ThinkNode_ConditionalTownBell">
+                <invert>true</invert>
+                <subNodes>
+                    <li Class="GuardDuty.ThinkNode_ConditionalWorkTypeDef">
+                        <workTypeDef>GuardDuty</workTypeDef>
+                        <makeAgro>true</makeAgro>
+                        <subNodes>
                             <li Class="ThinkNode_Priority">
                                 <subNodes>
-                                    <li Class="GuardDuty.JobGiver_GoToBell"/>
-                                    <li Class="GuardDuty.JobGiver_Capture">
-                                        <targetAcquireRadius>48</targetAcquireRadius>
+                                    <li Class="JobGiver_AIFightEnemies">
+                                        <targetAcquireRadius>77</targetAcquireRadius>
+                                        <targetKeepRadius>42</targetKeepRadius>
                                     </li>
-                                    <li Class="JobGiver_WanderOwnRoom"/>
+                                    <li Class="JobGiver_AIGotoNearestHostile"/>
+                                    <li Class="GuardDuty.JobGiver_Capture">
+                                        <targetAcquireRadius>200</targetAcquireRadius>
+                                    </li>
                                 </subNodes>
                             </li>
                         </subNodes>
                     </li>
-                </subNodes>
-            </li>
-            <li Class="GuardDuty.ThinkNode_ConditionalWorkTypeDef">
-                <workTypeDef>GuardDuty</workTypeDef>
-                <makeAgro>true</makeAgro>
-                <subNodes>
-                    <li Class="ThinkNode_Priority">
-                        <subNodes>
-                            <li Class="JobGiver_AIFightEnemies">
-                                <targetAcquireRadius>77</targetAcquireRadius>
-                                <targetKeepRadius>42</targetKeepRadius>
-                            </li>
-                            <li Class="JobGiver_AIGotoNearestHostile"/>
-                            <li Class="GuardDuty.JobGiver_Capture">
-                                <targetAcquireRadius>200</targetAcquireRadius>
-                            </li>
-                        </subNodes>
-                    </li>
-                </subNodes>
-            </li>
 
-            <li Class="GuardDuty.ThinkNode_ConditionalWorkTypeDef">
-                <workTypeDef>PatrolDuty</workTypeDef>
-                <makeAgro>true</makeAgro>
-                <subNodes>
-                    <li Class="ThinkNode_Priority">
+                    <li Class="GuardDuty.ThinkNode_ConditionalWorkTypeDef">
+                        <workTypeDef>PatrolDuty</workTypeDef>
+                        <makeAgro>true</makeAgro>
                         <subNodes>
                             <li Class="JobGiver_AIFightEnemies">
                                 <targetAcquireRadius>42</targetAcquireRadius>
@@ -86,9 +83,6 @@
                             <li Class="GuardDuty.JobGiver_Capture">
                                 <targetAcquireRadius>42</targetAcquireRadius>
                             </li>
-                            <li Class="JobGiver_WanderColony" />
-                            <li Class="GuardDuty.JobGiver_GoToBell"/>
-                            
                         </subNodes>
                     </li>
                 </subNodes>
