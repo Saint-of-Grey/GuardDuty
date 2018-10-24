@@ -15,39 +15,42 @@
                                 <workTypeDef>GuardDuty</workTypeDef>
                                 <makeAgro>true</makeAgro>
                                 <subNodes>
-                                    <li Class="ThinkNode_Priority">
-                                        <subNodes>
-                                            <li Class="JobGiver_AIFightEnemies">
-                                                <targetAcquireRadius>52</targetAcquireRadius>
-                                                <targetKeepRadius>42</targetKeepRadius>
-                                            </li>
-                                            <li Class="GuardDuty.JobGiver_GoToPatrol"/>
-                                        </subNodes>
+                                    <li Class="JobGiver_AIFightEnemies">
+                                        <targetAcquireRadius>52</targetAcquireRadius>
+                                        <targetKeepRadius>42</targetKeepRadius>
                                     </li>
+                                    <li Class="GuardDuty.JobGiver_GoToPatrol"/>
                                 </subNodes>
+
                             </li>
                             <li Class="GuardDuty.ThinkNode_ConditionalWorkTypeDef">
                                 <workTypeDef>PatrolDuty</workTypeDef>
                                 <makeAgro>true</makeAgro>
                                 <subNodes>
-                                    <li Class="ThinkNode_Priority">
-                                        <subNodes>
-                                            <li Class="JobGiver_AIFightEnemies">
-                                                <targetAcquireRadius>52</targetAcquireRadius>
-                                                <targetKeepRadius>42</targetKeepRadius>
-                                            </li>
-                                            <li Class="GuardDuty.JobGiver_GoToPatrol"/>
-                                        </subNodes>
+
+                                    <li Class="JobGiver_AIFightEnemies">
+                                        <targetAcquireRadius>52</targetAcquireRadius>
+                                        <targetKeepRadius>42</targetKeepRadius>
                                     </li>
+                                    <li Class="GuardDuty.JobGiver_GoToPatrol"/>
 
                                 </subNodes>
                             </li>
-
-                            <li Class="GuardDuty.JobGiver_Capture">
-                                <targetAcquireRadius>18</targetAcquireRadius>
+                            <li Class="GuardDuty.ThinkNode_ConditionalWorkTypesDef">
+                                <workTypeDefs>
+                                    <li>GuardDuty</li>
+                                    <li>PatrolDuty</li>
+                                </workTypeDefs>
+                                <invert>true</invert>
+                                <subNodes>
+                                    <li Class="GuardDuty.JobGiver_Capture">
+                                        <targetAcquireRadius>18</targetAcquireRadius>
+                                    </li>
+                                    <li Class="GuardDuty.JobGiver_GoToBell"/>
+                                    <li Class="JobGiver_WanderOwnRoom"/>
+                                </subNodes>
                             </li>
-                            <li Class="GuardDuty.JobGiver_GoToBell"/>
-                            <li Class="JobGiver_WanderOwnRoom"/>
+                            
                         </subNodes>
                     </li>
                     <li Class="GuardDuty.ThinkNode_ConditionalTownBell">
@@ -84,7 +87,7 @@
                                         <targetAcquireRadius>42</targetAcquireRadius>
                                     </li>
                                     <li Class="GuardDuty.JobGiver_GoToPatrol"/>
-                                              
+
                                 </subNodes>
                             </li>
                         </subNodes>

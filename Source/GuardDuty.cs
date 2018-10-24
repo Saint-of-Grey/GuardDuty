@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Reflection;
+using Harmony;
+using UnityEngine;
 using Verse;
 
 namespace GuardDuty
@@ -12,6 +14,11 @@ namespace GuardDuty
         public GuardDuty(ModContentPack content) : base(content)
         {
             latest = this._settings = GetSettings<MyModSettings>();
+            
+            //Harmony Kickofff
+            var harmony = HarmonyInstance.Create(typeof(GuardDuty).Assembly.FullName+"-harmony");
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
+
         }
 
         public override string SettingsCategory() => "Guard Duty";
@@ -25,7 +32,6 @@ namespace GuardDuty
             
             
             Widgets.CheckboxLabeled(mySlice.RightHalf().ContractedBy(4f), "Auto Capture", ref _settings.autoCapture);
-            //Widgets.CheckboxLabeled(mySlice.LeftHalf().ContractedBy(4f), "", ref _settings.autoCapture);
         }
     }
     

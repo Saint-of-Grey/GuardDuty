@@ -13,7 +13,7 @@ namespace GuardDuty
             return base.GetGizmos().Union(BellGizmo());
         }
 
-        private IEnumerable<Gizmo> BellGizmo()
+        public static IEnumerable<Gizmo> BellGizmo()
         {
             yield return new Command_Toggle
             {
@@ -26,7 +26,7 @@ namespace GuardDuty
             };
         }
 
-        protected virtual Texture2D Icon()
+        public static Texture2D Icon()
         {
             return ContentFinder<Texture2D>.Get("townbell", true);
         }

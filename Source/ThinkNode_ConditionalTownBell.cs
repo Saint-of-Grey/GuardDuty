@@ -1,3 +1,4 @@
+using System;
 using Verse;
 using Verse.AI;
 
@@ -7,7 +8,13 @@ namespace GuardDuty
     {
         protected override bool Satisfied(Pawn pawn)
         {
-            return GuardDuty.BellOn;
+            var bellOn = GuardDuty.BellOn;
+
+            if (bellOn)
+                foreach (var need in pawn.needs.AllNeeds)
+                    need.CurLevel = Math.Min(need.CurLevel, need.def.baseLevel/2f);
+            
+            return bellOn;
         }
     }
 }
