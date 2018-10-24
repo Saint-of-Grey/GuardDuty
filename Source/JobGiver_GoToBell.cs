@@ -4,22 +4,49 @@ using Verse.AI;
 
 namespace GuardDuty
 {
-    public class JobGiver_GoToBell : JobGiver_WanderColony
+    public class JobGiver_GoToBell : ThinkNode_JobGiver
     {
-        protected override IntVec3 GetWanderRoot(Pawn pawn)
+        Danger maxDanger = Verse.Danger.Some;
+        
+        protected override Job TryGiveJob(Pawn pawn)
         {
-            if (pawn == null)
+            var thing = ThingToDo(pawn);
+            
+            if (thing != null)
             {
-                return Find.CurrentMap.Center;
-            }
+                if (!thing.Position.IsValid)
+                    return (Job) null;
+                if (!pawn.CanReach((LocalTargetInfo) thing.Position, PathEndMode.ClosestTouch, maxDanger))
+                {
+                    return (Job) null;
+                }
 
+                if (thing.Position.DistanceTo(pawn.Position) < 10f)
+                {
+                    return null;
+                }
+                
+                return new Job(JobDefOf.Goto, (LocalTargetInfo) thing.Position)
+                {
+                    locomotionUrgency = LocomotionUrgency.Sprint
+                };
+            }
+            else
+                return null;
+        }
+
+      
+
+        private Thing ThingToDo(Pawn pawn)
+        {
             ThingDef singleDef = WhatDef();
 
             var thingRequest = ThingRequest.ForDef(singleDef);
-            return ClosestPosition(pawn, thingRequest)?.Position ?? base.GetWanderRoot(pawn);
+            Thing closestPosition = ClosestPosition(pawn, thingRequest);
+            return closestPosition;
         }
 
-        private static Thing ClosestPosition(Pawn pawn, ThingRequest thingRequest)
+        private Thing ClosestPosition(Pawn pawn, ThingRequest thingRequest)
         {
             return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map,
                 thingRequest, PathEndMode.Touch,
@@ -27,9 +54,9 @@ namespace GuardDuty
                 200f);
         }
 
-        private static TraverseParms Danger(Pawn pawn)
+        private TraverseParms Danger(Pawn pawn)
         {
-            return TraverseParms.For(pawn, Verse.Danger.Some);
+            return TraverseParms.For(pawn, maxDanger);
         }
 
         protected virtual ThingDef WhatDef()
