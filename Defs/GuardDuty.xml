@@ -1,5 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+    <ThingDef ParentName="BuildingBase">
+        <defName>PatrolSpot</defName>
+        <label>Patrol spot</label>
+        <description>Designates a spot to patrol to defending.</description>
+        <thingClass>GuardDuty.Building_PatrolSpot</thingClass>
+        <graphicData>
+            <texPath>rw-logo2</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <altitudeLayer>FloorEmplacement</altitudeLayer>
+        <statBases>
+            <WorkToBuild>0</WorkToBuild>
+        </statBases>
+        <fillPercent>0.65</fillPercent>
+        <rotatable>false</rotatable>
+        <scatterableOnMapGen>false</scatterableOnMapGen>
+        <useHitPoints>False</useHitPoints>
+        <designationCategory>Misc</designationCategory>
+        <passability>Standable</passability>
+        <building>
+            <sowTag>SupportPlantsOnly</sowTag>
+            <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <designationHotKey>Misc11</designationHotKey>
+    </ThingDef>
+    
+    <ThingDef ParentName="BuildingBase">
+        <defName>BellSpot</defName>
+        <label>bell spot</label>
+        <description>Designates a spot for running away and defending.</description>
+        <thingClass>GuardDuty.Building_BellSpot</thingClass>
+        <graphicData>
+            <texPath>townbell</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <altitudeLayer>FloorEmplacement</altitudeLayer>
+        <statBases>
+            <WorkToBuild>0</WorkToBuild>
+        </statBases>
+        <rotatable>false</rotatable>
+        <scatterableOnMapGen>false</scatterableOnMapGen>
+        <useHitPoints>False</useHitPoints>
+        <designationCategory>Misc</designationCategory>
+        <passability>Standable</passability>
+        <building>
+            <sowTag>SupportPlantsOnly</sowTag>
+            <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+            <ai_chillDestination>true</ai_chillDestination>
+        </building>
+        <designationHotKey>Misc12</designationHotKey>
+    </ThingDef>
+
+    <WorkTypeDef>
+        <defName>PatrolDuty</defName>
+        <labelShort>Patrol Duty</labelShort>
+        <pawnLabel>Patrol Guard</pawnLabel>
+        <gerundLabel>patrolling</gerundLabel>
+        <description>Walk around town and guard stuff</description>
+        <verb>patrol</verb>
+        <naturalPriority>11</naturalPriority>
+        <relevantSkills>
+            <li>Shooting</li>
+            <li>Melee</li>
+        </relevantSkills>
+        <workTags>
+            <li>Violent</li>
+        </workTags>
+    </WorkTypeDef>
+    
     <WorkTypeDef>
         <defName>GuardDuty</defName>
         <labelShort>Guard Duty</labelShort>
@@ -10,12 +80,12 @@
         <naturalPriority>1101</naturalPriority>
         <relevantSkills>
             <li>Shooting</li>
+            <li>Melee</li>
         </relevantSkills>
         <workTags>
             <li>Violent</li>
         </workTags>
     </WorkTypeDef>
-
 
     <WorkGiverDef>
         <defName>GuardDutyRescue</defName>
@@ -37,6 +107,34 @@
         <label>take prisoners to bed</label>
         <giverClass>WorkGiver_Warden_TakeToBed</giverClass>
         <workType>GuardDuty</workType>
+        <verb>take to bed</verb>
+        <gerund>taking to bed</gerund>
+        <priorityInType>30</priorityInType>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+    <WorkGiverDef>
+        <defName>PatrolDutyRescue</defName>
+        <label>rescue downed allies to bed</label>
+        <giverClass>WorkGiver_RescueDowned</giverClass>
+        <workType>PatrolDuty</workType>
+        <verb>rescue</verb>
+        <gerund>rescuing</gerund>
+        <priorityInType>60</priorityInType>
+        <directOrderable>false</directOrderable>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+    </WorkGiverDef>
+
+
+    <WorkGiverDef>
+        <defName>PatrolDutyTakePrisonerToBed</defName>
+        <label>take prisoners to bed</label>
+        <giverClass>WorkGiver_Warden_TakeToBed</giverClass>
+        <workType>PatrolDuty</workType>
         <verb>take to bed</verb>
         <gerund>taking to bed</gerund>
         <priorityInType>30</priorityInType>

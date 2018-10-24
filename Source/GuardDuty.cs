@@ -5,6 +5,7 @@ namespace GuardDuty
 {
     public class GuardDuty : Mod
     {
+        public static bool BellOn = false;
         public static MyModSettings latest;
         private MyModSettings _settings;
 
