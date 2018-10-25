@@ -33,9 +33,11 @@
         <description>Designates a spot for running away and defending.</description>
         <thingClass>GuardDuty.Building_BellSpot</thingClass>
         <graphicData>
-            <texPath>townbell</texPath>
+            <texPath>Belltower_WIP</texPath>
             <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
         </graphicData>
+        <size>(1,3)</size>
         <altitudeLayer>FloorEmplacement</altitudeLayer>
         <statBases>
             <WorkToBuild>0</WorkToBuild>
