@@ -61,6 +61,7 @@
     <Compile Include="JobGiver_Capture.cs" />
     <Compile Include="JobGiver_GoToBell.cs" />
     <Compile Include="JobGiver_GoToPatrol.cs" />
+    <Compile Include="PawnPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThinkNode_ConditionalTownBell.cs" />
     <Compile Include="ThinkNode_ConditionalWorkTypeDef.cs" />
