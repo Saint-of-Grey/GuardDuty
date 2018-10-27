@@ -12,7 +12,7 @@ namespace GuardDuty
 
             if (bellOn)
                 foreach (var need in pawn.needs.AllNeeds)
-                    need.CurLevel = Math.Min(need.CurLevel, need.def.baseLevel/2f);
+                    need.CurLevel = Math.Max(need.CurLevel, need.def.baseLevel/2f);
             
             return bellOn;
         }
