@@ -2,11 +2,11 @@ using Verse;
 
 namespace GuardDuty
 {
-    public class JobGiver_GoToPatrol : JobGiver_GoToBell
+    public class JobGiver_GoToBellSmall : JobGiver_GoToBell
     {
         protected override ThingDef WhatDef()
         {
-            return ThingDef.Named("PatrolSpot");
+            return ThingDef.Named("BellSpotSmall");
         }
     }
 }

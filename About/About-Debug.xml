@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>GuardDuty</name>
+	<name>GuardDuty and Town Bell</name>
 	<author>AliceCecil</author>
 	<targetVersion>1.0.0</targetVersion>
-	<description>Pawns set to guard duty will attack bad things in their zone.</description>
+	<description>Pawns set to guard duty will attack bad things in their zone and a town bell to make your villagers run to the bell towers or spots and the guards to patrol spots. Difference between guard duty and patrol duty is work priority. Patrol Duty is will be done if they have no other next job; guard duty will guard above other jobs except for surgery and the likes above it (to the left in the ui). Thanks to sma342#9694 on the rimworld discord for the textures!</description>
 	<url>https://steamcommunity.com/id/AliceCecil/myworkshopfiles/?appid=294100</url>
 </ModMetaData>

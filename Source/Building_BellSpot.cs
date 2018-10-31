@@ -28,7 +28,7 @@ namespace GuardDuty
 
         public static Texture2D Icon()
         {
-            return ContentFinder<Texture2D>.Get("townbell", true);
+            return ContentFinder<Texture2D>.Get("alarmbell", true);
         }
     }
 }

@@ -48,6 +48,7 @@
                                                 <targetAcquireRadius>18</targetAcquireRadius>
                                             </li>
                                             <li Class="GuardDuty.JobGiver_GoToBell"/>
+                                            <li Class="GuardDuty.JobGiver_GoToBellSmall"/>
                                             <li Class="JobGiver_WanderOwnRoom"/>
                                         </subNodes>
                                     </li>
@@ -88,6 +89,8 @@
                                                 <targetAcquireRadius>42</targetAcquireRadius>
                                             </li>
                                             <li Class="GuardDuty.JobGiver_GoToPatrol"/>
+                                            <li Class="GuardDuty.JobGiver_GoToBellSmall"/>
+                                            <li Class="GuardDuty.JobGiver_GoToBell"/>
 
                                         </subNodes>
                                     </li>
