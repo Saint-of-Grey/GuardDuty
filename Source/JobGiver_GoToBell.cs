@@ -4,10 +4,11 @@ using Verse.AI;
 
 namespace GuardDuty
 {
-    public class JobGiver_GoToBell : ThinkNode_JobGiver
+    public class JobGiver_GoToBellBase : ThinkNode_JobGiver
     {
         Danger maxDanger = Verse.Danger.Some;
-        
+        ThingDef thingDef = ThingDefOf.PartySpot;
+
         protected override Job TryGiveJob(Pawn pawn)
         {
             var thing = ThingToDo(pawn);
@@ -21,7 +22,7 @@ namespace GuardDuty
                     return (Job) null;
                 }
 
-                if (thing.Position.DistanceTo(pawn.Position) < 10f)
+                if (IntVec3Utility.DistanceTo(thing.Position, pawn.Position) < 10f)
                 {
                     return null;
                 }
@@ -34,8 +35,6 @@ namespace GuardDuty
             else
                 return null;
         }
-
-      
 
         private Thing ThingToDo(Pawn pawn)
         {
@@ -59,6 +58,14 @@ namespace GuardDuty
             return TraverseParms.For(pawn, maxDanger);
         }
 
+        protected virtual ThingDef WhatDef()
+        {
+            return thingDef;
+        }
+    }
+
+    public class JobGiver_GoToBell : JobGiver_GoToBellBase
+    {
         protected virtual ThingDef WhatDef()
         {
             return ThingDef.Named("BellSpot");
