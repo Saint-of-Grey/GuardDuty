@@ -39,7 +39,11 @@ namespace GuardDuty
         private Thing ThingToDo(Pawn pawn)
         {
             ThingDef singleDef = WhatDef();
-
+            if (singleDef == null)
+            {
+                Log.ErrorOnce("Forgot to set thingDef", this.GetHashCode());
+                return null;
+            }
             var thingRequest = ThingRequest.ForDef(singleDef);
             Thing closestPosition = ClosestPosition(pawn, thingRequest);
             return closestPosition;
