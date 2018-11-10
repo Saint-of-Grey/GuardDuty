@@ -47,15 +47,9 @@
                                             <li Class="GuardDuty.JobGiver_Capture">
                                                 <targetAcquireRadius>18</targetAcquireRadius>
                                             </li>
-                                            <li Class="GuardDuty.ThinkNode_ConditionalDelay">
-                                                <min>300</min>
-                                                <max>2000</max>
-                                                <subNodes>
-                                                    <li Class="GuardDuty.JobGiver_GoToBell"/>
-                                                    <li Class="GuardDuty.JobGiver_GoToBellSmall"/>
-                                                    <li Class="JobGiver_WanderOwnRoom"/>
-                                                </subNodes>
-                                            </li>
+                                            <li Class="GuardDuty.JobGiver_GoToBell"/>
+                                            <li Class="GuardDuty.JobGiver_GoToBellSmall"/>
+                                            <li Class="JobGiver_WanderOwnRoom"/>
                                         </subNodes>
                                     </li>
 
@@ -94,15 +88,9 @@
                                             <li Class="GuardDuty.JobGiver_Capture">
                                                 <targetAcquireRadius>42</targetAcquireRadius>
                                             </li>
-                                            <li Class="GuardDuty.ThinkNode_ConditionalDelay">
-                                                <min>3000</min>
-                                                <max>22000</max>
-                                                <subNodes>
-                                                    <li Class="GuardDuty.JobGiver_GoToPatrol"/>
-                                                    <li Class="GuardDuty.JobGiver_GoToBellSmall"/>
-                                                    <li Class="GuardDuty.JobGiver_GoToBell"/>
-                                                </subNodes>
-                                            </li>
+                                            <li Class="GuardDuty.JobGiver_GoToPatrol"/>
+                                            <li Class="GuardDuty.JobGiver_GoToBellSmall"/>
+                                            <li Class="GuardDuty.JobGiver_GoToBell"/>
 
                                         </subNodes>
                                     </li>
